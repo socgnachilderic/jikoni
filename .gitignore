@@ -1,0 +1,14 @@
+.idea/
+
+debug/
+target/
+migration/target/
+
+data/
+
+Cargo.lock
+**/*.rs.bk
+*.pdb
+
+db.sqlite*
+.env
