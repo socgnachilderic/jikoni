@@ -22,7 +22,8 @@
   </tr>
   <tr>
     <td style="vertical-align: top;">
-        All gourmands who wish to learn or discover new recipes
+        <p>All gourmands who wish to learn or discover new recipes</p>
+        <p>Administrator</p>
     </td>
     <td style="vertical-align: top;">
         <ul>
