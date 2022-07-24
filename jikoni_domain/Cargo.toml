@@ -1,0 +1,18 @@
+[package]
+name = "jikoni_domain"
+version = "0.1.0"
+edition = "2021"
+authors = ["SOCGNA Childéric <socgnachilderic@proton.me>"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[dev-dependencies]
+async-trait = "0.1.56"
+cucumber = "0.13.0"
+tokio = { version = "1.20.0", features = ["macros", "time", "rt-multi-thread"] }
+
+[[test]]
+name = "cucumber"
+harness = false

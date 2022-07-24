@@ -2,9 +2,9 @@ use std::sync::Arc;
 
 use actix_web::{middleware, web, App, HttpServer};
 
-use jikoni::configs::{get_cors, Env};
-use jikoni::graphql::{build_schema, get_graphql_endpoints};
-use jikoni::{get_file, AppState};
+use jikoni_infra::configs::{get_cors, Env};
+use jikoni_infra::graphql::{build_schema, get_graphql_endpoints};
+use jikoni_infra::{get_file, AppState};
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {

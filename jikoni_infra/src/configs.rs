@@ -8,7 +8,7 @@ pub struct Env {
     pub db_url: Cow<'static, str>,
     pub host: Cow<'static, str>,
     pub port: u16,
-    pub media_dir: Cow<'static, str>,
+    pub media_root: Cow<'static, str>,
 }
 
 impl Env {
@@ -18,16 +18,16 @@ impl Env {
         let db_url =
             env::var("DATABASE_URL").expect(&Self::format_expected_message("DATABASE_URL"));
 
-        let media_dir =
-            env::var("MEDIA_UPLOAD_DIR").expect(&Self::format_expected_message("MEDIA_UPLOAD_DIR"));
-        let host = env::var("HOST").expect(&Self::format_expected_message("HOST"));
-        let port = env::var("PORT").expect(&Self::format_expected_message("PORT"));
+        let media_root =
+            env::var("JIKONI_APP_MEDIA_ROOT").expect(&Self::format_expected_message("JIKONI_APP_MEDIA_ROOT"));
+        let host = env::var("JIKONI_APP_HOST").expect(&Self::format_expected_message("JIKONI_APP_HOST"));
+        let port = env::var("JIKONI_APP_PORT").expect(&Self::format_expected_message("JIKONI_APP_PORT"));
         let port = port.parse::<u16>().expect("PORT is not valid number");
 
         Self {
             db_url: Cow::from(db_url),
             host: Cow::from(host),
-            media_dir: Cow::from(media_dir),
+            media_root: Cow::from(media_root),
             port,
         }
     }

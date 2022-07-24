@@ -19,7 +19,7 @@ mod recipes;
 
 #[get("/files/{dir}/{name}.{ext}")]
 pub async fn get_file(path: web::Path<FilePath>, app_state: web::Data<AppState>) -> impl Responder {
-    let file_path = path.into_inner().get_full_path(&app_state.env.media_dir);
+    let file_path = path.into_inner().get_full_path(&app_state.env.media_root);
     NamedFile::open_async(file_path).await
 }
 
@@ -37,9 +37,9 @@ pub struct FilePath {
 }
 
 impl FilePath {
-    fn get_full_path(&self, media_dir: &str) -> String {
+    fn get_full_path(&self, media_root: &str) -> String {
         let extension = to_variant_name(&self.ext).unwrap();
-        format!("{}/{}/{}.{}", media_dir, self.dir, self.name, extension)
+        format!("{}/{}/{}.{}", media_root, self.dir, self.name, extension)
     }
 }
 

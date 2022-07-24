@@ -1,34 +1,10 @@
-[package]
-name = "jikoni"
-description="Recipe App"
-version = "0.1.0"
-license = "MIT"
-authors = ["SOCGNA Childéric <socgnachilderic@proton.me>"]
-edition = "2021"
+[workspace]
+members = [
+    "jikoni_domain",
+    "jikoni_infra",
+    "migration",
+]
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
-actix-web = "4.1.0"
-migration = { path = "migration" }
-tracing = "0.1.35"
-tracing-subscriber = { version = "0.3.14", features = ["env-filter"] }
-serde = { version = "1.0.139", features = ["derive"] }
-serde_json = "1.0.82"
-futures = "0.3.21"
-dotenv = "0.15.0"
-actix-cors = "0.6.1"
-async-graphql = "4.0.4"
-async-graphql-actix-web = "4.0.4"
-uuid = "1.1.2"
-serde_variant = "0.1.1"
-image = "0.24.3"
-actix-files = "0.6.1"
-
-[dependencies.sea-orm]
-version = "^0.9.0"
-features = [
-    "debug-print",
-    "runtime-actix-native-tls",
-    "sqlx-sqlite"
+default-members = [
+    "jikoni_infra"
 ]
